@@ -1,5 +1,25 @@
 # awplanet
 
+## 中文简介
+
+awplanet 是一款基于 React、Three.js、Vite 与 Electron 构建的 AI 原生 3D
+导演工作台与场景创作工具。它将可视化场景编辑、角色控制、骨骼姿势、电影化运镜、
+分镜时间轴、地形雕刻、物件布置和手机虚拟拍摄整合在同一套工作流中。
+
+项目提供第三人称游戏视角、FPV 无人机运镜和手机虚拟拍摄三种导演模式，并支持
+macOS Apple Silicon 与 Windows x64 桌面端。浏览器版 Phone Pilot 可以通过手机
+方向传感器和虚拟摇杆控制电脑端镜头。
+
+本项目以源码可用方式发布，非商业使用遵循
+[PolyForm Noncommercial License 1.0.0](LICENSE.txt)；商业使用需要获得
+DynamicWang 的单独书面授权，详情见
+[商业使用与合作说明](COMMERCIAL-LICENSE.md)。
+
+桌面体验包可从 [GitHub Releases](https://github.com/awplanets/awplanet/releases)
+下载。
+
+## English
+
 awplanet is a source-available, AI-native 3D direction and scene creation studio
 built with React, Three.js, Vite, and Electron. It combines a visual scene
 editor, playable character controls, cinematic camera tools, a storyboard
