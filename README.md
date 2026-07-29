@@ -27,6 +27,52 @@ timeline, terrain sculpting, object placement, and a browser-based phone pilot.
 
 ![awplanet editor](public/brand/awplanet-startup-banner.jpg)
 
+## 功能界面 / Interface Tour
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="docs/screenshots/editor-overview.jpg" alt="awplanet 项目与场景编辑器">
+      <br><strong>项目与场景 / Project & Scene</strong><br>
+      管理项目、场景、实体状态和编辑历史。
+    </td>
+    <td width="50%">
+      <img src="docs/screenshots/object-library.jpg" alt="awplanet 物件资源库">
+      <br><strong>物件资源库 / Object Library</strong><br>
+      放置基础几何体、建筑、室内、城市和地形资产。
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="docs/screenshots/character-rig.jpg" alt="awplanet 角色骨骼编辑">
+      <br><strong>角色与骨骼 / Character Rig</strong><br>
+      编辑角色颜色、姿势、关节和舞台变换。
+    </td>
+    <td width="50%">
+      <img src="docs/screenshots/camera-presets.jpg" alt="awplanet 电影化镜头预设">
+      <br><strong>电影化镜头 / Cinematic Camera</strong><br>
+      使用目标跟随、构图、焦距和电影化运镜预设。
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="docs/screenshots/terrain-sculpt.jpg" alt="awplanet 地形雕刻">
+      <br><strong>地形雕刻 / Terrain Sculpt</strong><br>
+      通过抬高、降低、平滑、压平、噪波和侵蚀塑造地形。
+    </td>
+    <td width="50%">
+      <img src="docs/screenshots/storyboard-timeline.jpg" alt="awplanet 分镜时间轴">
+      <br><strong>分镜时间轴 / Storyboard Timeline</strong><br>
+      录制、编排、回放并导出镜头与角色轨道。
+    </td>
+  </tr>
+</table>
+
+![awplanet FPV 飞行运镜](docs/screenshots/fpv-pilot.jpg)
+
+**FPV 飞行运镜 / FPV Camera Pilot**<br>
+使用 WASD、Q/E、鼠标和可调节的平滑参数进行自由运镜，并可锁定目标及录制镜头。
+
 ## Highlights
 
 - Visual 3D editor with project, character, object, world, camera, and brush tools.
@@ -81,6 +127,13 @@ The `/phone-pilot` route is the browser-based mobile controller. It mirrors the
 desktop viewport, keeps horizontal phone orientation tracking, and provides a
 circular joystick for deliberate forward, backward, and lateral camera motion.
 Connect and pause controls are available directly on the phone page.
+
+![awplanet Phone Pilot mobile controller](docs/screenshots/phone-pilot.jpg)
+
+The phone interface keeps the live camera view visible while providing
+connect/pause, recenter, recording, a compact movement joystick, and adjustable
+movement scale. Horizontal device orientation controls the lens direction while
+the joystick provides deliberate positional movement.
 
 Motion sensors require HTTPS on mobile browsers. For a temporary public HTTPS
 URL:
