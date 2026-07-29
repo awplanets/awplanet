@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <clipPath id="icon-circle">
+      <circle cx="512" cy="512" r="470"/>
+    </clipPath>
+  </defs>
+  <circle cx="512" cy="512" r="470" fill="#000"/>
+  <image
+    x="42"
+    y="42"
+    width="940"
+    height="940"
+    preserveAspectRatio="xMidYMid meet"
+    clip-path="url(#icon-circle)"
+    xlink:href="file:///Users/awplanet/Desktop/awplanet/logo.jpg"
+  />
+</svg>

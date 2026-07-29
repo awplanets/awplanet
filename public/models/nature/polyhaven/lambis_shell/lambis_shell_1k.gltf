@@ -1,0 +1,159 @@
+{
+  "asset": {
+    "generator": "Khronos glTF Blender I/O v4.1.63",
+    "version": "2.0"
+  },
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "blend_export",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "lambis_shell"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "lambis_shell",
+      "normalTexture": {
+        "index": 0
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 1
+        },
+        "metallicRoughnessTexture": {
+          "index": 2
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "mesh",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3,
+          "material": 0
+        }
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    }
+  ],
+  "images": [
+    {
+      "mimeType": "image/jpeg",
+      "name": "lambis_shell_nor_gl",
+      "uri": "textures/lambis_shell_nor_gl_1k.jpg"
+    },
+    {
+      "mimeType": "image/jpeg",
+      "name": "lambis_shell_diff",
+      "uri": "textures/lambis_shell_diff_1k.jpg"
+    },
+    {
+      "mimeType": "image/jpeg",
+      "name": "lambis_shell_metal-lambis_shell_rough",
+      "uri": "textures/lambis_shell_arm_1k.jpg"
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 7361,
+      "max": [
+        0.06778253614902496,
+        0.04649100825190544,
+        0.04096278175711632
+      ],
+      "min": [
+        -0.07169974595308304,
+        -0.00002066521847154945,
+        -0.033580198884010315
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 7361,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 7361,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5123,
+      "count": 37494,
+      "type": "SCALAR"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 88332,
+      "byteOffset": 0,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 88332,
+      "byteOffset": 88332,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 58888,
+      "byteOffset": 176664,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 74988,
+      "byteOffset": 235552,
+      "target": 34963
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 310540,
+      "uri": "lambis_shell.bin"
+    }
+  ]
+}

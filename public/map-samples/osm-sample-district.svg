@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-label="Sample OSM district top-down map">
+  <defs>
+    <linearGradient id="grass" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#6f9564"/>
+      <stop offset="1" stop-color="#365f42"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" x2="1">
+      <stop offset="0" stop-color="#83d2e3"/>
+      <stop offset="1" stop-color="#287999"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="7" stdDeviation="7" flood-color="#16202a" flood-opacity=".3"/>
+    </filter>
+  </defs>
+  <rect width="640" height="420" fill="#46594c"/>
+  <path d="M0 0h640v420H0z" fill="url(#grass)" opacity=".86"/>
+  <path d="M18 360 C126 300 124 210 214 178 C300 148 394 166 488 104 C552 62 600 54 640 38 L640 420 L18 420z" fill="#587658" opacity=".42"/>
+  <path d="M6 326 C108 280 133 214 197 194 C264 174 321 216 398 178 C488 132 520 78 634 42" stroke="url(#water)" stroke-width="45" stroke-linecap="round" fill="none" opacity=".95"/>
+  <path d="M32 324 C128 285 141 228 202 210 C265 191 318 229 391 194 C478 153 522 95 620 64" stroke="#cdfaff" stroke-width="8" stroke-linecap="round" fill="none" opacity=".36"/>
+  <path d="M40 195 C160 188 254 202 356 190 C472 176 544 193 620 176" stroke="#4d5154" stroke-width="42" stroke-linecap="round" fill="none"/>
+  <path d="M40 195 C160 188 254 202 356 190 C472 176 544 193 620 176" stroke="#798087" stroke-width="7" stroke-linecap="round" fill="none" opacity=".55"/>
+  <path d="M333 48 C322 130 310 215 302 368" stroke="#555a5c" stroke-width="25" stroke-linecap="round" fill="none"/>
+  <path d="M333 48 C322 130 310 215 302 368" stroke="#878e93" stroke-width="5" stroke-linecap="round" fill="none" opacity=".5"/>
+  <path d="M70 295 C158 274 210 292 296 274 C388 255 444 280 571 250" stroke="#675f4f" stroke-width="13" stroke-linecap="round" fill="none"/>
+  <polygon points="130,70 242,62 250,135 126,145" fill="#8a9194" filter="url(#shadow)"/>
+  <polygon points="412,68 548,72 550,143 408,137" fill="#878d91" filter="url(#shadow)"/>
+  <polygon points="420,205 534,202 538,276 418,278" fill="#7e8588" filter="url(#shadow)"/>
+  <polygon points="100,248 254,248 260,318 90,314" fill="#80878a" filter="url(#shadow)"/>
+  <rect x="259" y="205" width="91" height="69" rx="6" fill="#74a65e" opacity=".78"/>
+  <path d="M264 238 C287 218 319 218 346 235" stroke="#d0ead0" stroke-width="7" fill="none" opacity=".44"/>
+  <circle cx="326" cy="194" r="10" fill="#9ee4c8"/>
+  <circle cx="589" cy="178" r="10" fill="#f1c678"/>
+  <circle cx="356" cy="216" r="8" fill="#d4f7f0"/>
+  <text x="24" y="36" fill="#edf5ee" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="700">Local OSM Sample</text>
+  <text x="24" y="60" fill="#d7e1db" font-family="Inter,Arial,sans-serif" font-size="11">roads / buildings / water / green zones</text>
+</svg>

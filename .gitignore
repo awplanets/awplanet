@@ -1,0 +1,47 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+out
+release
+ios-phone-pilot
+scripts/package-ios-*.sh
+*.local
+.cert
+.env
+.env.*
+!.env.example
+
+# Platform packaging and signing output
+*.dmg
+*.ipa
+*.xcarchive
+*.mobileprovision
+*.p12
+*.cer
+*.zip
+
+# Local certificates and private keys
+*.pem
+*.key
+*.csr
+*.srl
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

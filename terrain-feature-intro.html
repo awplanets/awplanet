@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>动态地形仿真系统功能介绍</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #111316;
+        --panel: #1a1d21;
+        --panel-soft: #22262b;
+        --text: #f2f0e8;
+        --muted: #b9b4a8;
+        --line: rgba(255, 255, 255, 0.12);
+        --accent: #d8c27b;
+        --accent-2: #7db7a8;
+        --shadow: 0 22px 70px rgba(0, 0, 0, 0.42);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background:
+          radial-gradient(circle at 16% 0%, rgba(216, 194, 123, 0.16), transparent 30%),
+          linear-gradient(180deg, #141619 0%, #0d0f11 100%);
+        color: var(--text);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        line-height: 1.68;
+      }
+
+      .page {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 56px 28px 80px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1.25fr);
+        gap: 34px;
+        align-items: center;
+        min-height: 76vh;
+      }
+
+      .eyebrow {
+        margin: 0 0 14px;
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        margin-bottom: 18px;
+        font-size: clamp(42px, 7vw, 82px);
+        line-height: 0.96;
+        letter-spacing: 0;
+      }
+
+      .lead {
+        max-width: 620px;
+        margin-bottom: 30px;
+        color: #d9d4c8;
+        font-size: 18px;
+      }
+
+      .meta-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .meta {
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.045);
+        padding: 14px 16px;
+        border-radius: 8px;
+      }
+
+      .meta strong {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--text);
+        font-size: 15px;
+      }
+
+      .meta span {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      figure {
+        margin: 0;
+      }
+
+      .shot {
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 8px;
+        background: #0b0c0d;
+        box-shadow: var(--shadow);
+      }
+
+      .shot img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      figcaption {
+        padding: 12px 14px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .section {
+        display: grid;
+        grid-template-columns: minmax(290px, 0.82fr) minmax(0, 1.18fr);
+        gap: 32px;
+        align-items: start;
+        padding: 46px 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .section h2 {
+        margin-bottom: 14px;
+        font-size: clamp(28px, 4vw, 44px);
+        line-height: 1.06;
+      }
+
+      .section p {
+        color: #d7d1c5;
+        font-size: 16px;
+      }
+
+      .list {
+        display: grid;
+        gap: 12px;
+        margin: 22px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .list li {
+        position: relative;
+        padding: 12px 14px 12px 38px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: 8px;
+        color: #ded9cf;
+      }
+
+      .list li::before {
+        content: "";
+        position: absolute;
+        left: 14px;
+        top: 21px;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--accent-2);
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 26px;
+      }
+
+      .card {
+        min-height: 150px;
+        padding: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.03));
+      }
+
+      .card h3 {
+        margin-bottom: 8px;
+        font-size: 18px;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .split-gallery {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .closing {
+        padding: 46px 0 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .closing-panel {
+        border: 1px solid rgba(255, 255, 255, 0.13);
+        border-radius: 8px;
+        background: linear-gradient(135deg, rgba(216, 194, 123, 0.13), rgba(125, 183, 168, 0.08));
+        padding: 28px;
+      }
+
+      .closing-panel h2 {
+        margin-bottom: 12px;
+        font-size: 32px;
+      }
+
+      .closing-panel p {
+        margin-bottom: 0;
+        color: #ddd7ca;
+      }
+
+      @media (max-width: 900px) {
+        .hero,
+        .section {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          min-height: auto;
+        }
+
+        .cards,
+        .split-gallery,
+        .meta-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Dynamic Terrain Simulation</p>
+          <h1>动态地形仿真系统</h1>
+          <p class="lead">
+            这是一个基于 Three.js 的实时 3D 场景原型，核心目标是让角色、地形、材质、物件和环境反馈形成一个连续的仿真体验。
+            玩家可以在不同环境中移动、跳跃、编辑地形、放置物件，并观察脚印、草、水、影子和远景之间的动态关系。
+          </p>
+          <div class="meta-grid">
+            <div class="meta">
+              <strong>核心体验</strong>
+              <span>角色驱动的自然环境交互</span>
+            </div>
+            <div class="meta">
+              <strong>主要场景</strong>
+              <span>雪地、沙地、草地、水面、石地、Backroom</span>
+            </div>
+            <div class="meta">
+              <strong>编辑能力</strong>
+              <span>物件插入、三轴缩放、旋转、地形雕刻</span>
+            </div>
+            <div class="meta">
+              <strong>运动反馈</strong>
+              <span>走跑跳、后跳、坐下、脚印、碰撞与贴地</span>
+            </div>
+          </div>
+        </div>
+
+        <figure class="shot">
+          <img src="feature-doc-assets/01-overview.png" alt="角色在动态地形中的整体画面" />
+          <figcaption>整体画面：第三人称角色、实时阴影、地形材质和底部控制栏。</figcaption>
+        </figure>
+      </section>
+
+      <section class="section">
+        <div>
+          <h2>多环境材质系统</h2>
+          <p>
+            底部材质球用于切换不同环境。每个环境不是只替换颜色，而是拥有独立的材质参数、远景色调、地表反馈和交互规则。
+            例如雪地和沙地会留下脚印，草地会产生风动和经过形变，水面会有流动、涟漪与反射，Backroom 则是室内迷宫式空间。
+          </p>
+          <ul class="list">
+            <li>材质选择保留完整名称，便于快速理解当前地表类型。</li>
+            <li>不同地图拥有独立坐标和独立物件，不会把一个场景的编辑内容带到另一个场景。</li>
+            <li>草地会在角色经过位置产生避让形变，并随风摆动、逐渐复原。</li>
+            <li>水面会根据脚步触发涟漪，水中倒影会受到波纹影响。</li>
+            <li>雪地和沙地脚印会结合当前地形高度，而不是固定压到原始平面。</li>
+            <li>Backroom 场景使用独立的墙体、柱体、天花灯、碰撞和迷宫生成逻辑。</li>
+            <li>远景地面随角色位置持续扩展，避免开放场景突然中断。</li>
+          </ul>
+        </div>
+
+        <figure class="shot">
+          <img src="feature-doc-assets/02-terrain-menu.png" alt="地形材质选择菜单" />
+          <figcaption>材质菜单：Snow、Sand、Grass、Water、Stone、Backroom 等场景入口。</figcaption>
+        </figure>
+      </section>
+
+      <section class="section">
+        <div>
+          <h2>角色运动与地面反馈</h2>
+          <p>
+            角色使用骨骼动画模型，支持站立、行走、奔跑、转向、跳跃、跑跳、后跳和坐下等动作。
+            地面高度会实时采样，角色会根据雕刻后的地形进行上坡、下坡和落地贴合。
+          </p>
+          <ul class="list">
+            <li>按住 Shift 可在不同方向奔跑，空格触发原地跳、走路跳或跑步跳。</li>
+            <li>连续按两次 S 触发向当前朝向后方的后跳动作。</li>
+            <li>接近可坐的大石头类物件时，按 X 可坐到物件上。</li>
+            <li>雪地和沙地会留下脚印，脚印会尽量沿当前地形坡面局部压痕。</li>
+          </ul>
+        </div>
+
+        <figure class="shot">
+          <img src="feature-doc-assets/06-action-menu.png" alt="角色运动和地面反馈示意" />
+          <figcaption>运动反馈：角色阴影、脚底接触、地形高度和运动状态共同影响画面表现。</figcaption>
+        </figure>
+      </section>
+
+      <section class="section">
+        <div>
+          <h2>场景物件编辑器</h2>
+          <p>
+            物件系统提供类似地图编辑器的插入方式。打开 OBJ 菜单后，可以查看当前场景专属的 3D 物件缩略预览，
+            再点击地面把物件放入场景。物件会保存在当前地图中，并拥有自己的碰撞体积。
+          </p>
+          <ul class="list">
+            <li>不同场景展示不同物件，例如石头、灌木、贝壳等自然地形元素。</li>
+            <li>高物体会阻挡角色，低物体可以跨过。</li>
+            <li>放大或缩小物件后，碰撞体积会同步变化。</li>
+          </ul>
+        </div>
+
+        <figure class="shot">
+          <img src="feature-doc-assets/03-object-menu.png" alt="物件菜单和 3D 物件预览" />
+          <figcaption>OBJ 菜单：每个物件用 3D 预览图展示，点击场景位置即可插入。</figcaption>
+        </figure>
+      </section>
+
+      <section class="section">
+        <div>
+          <h2>物件自由编辑</h2>
+          <p>
+            Edit 模式用于调整已放置的物件。选中物件后，可以控制整体大小、三轴比例和水平旋转角度。
+            编辑结束后会收起参考线，让场景恢复干净的浏览状态。
+          </p>
+          <ul class="list">
+            <li>支持整体缩放和 X/Y/Z 三轴比例调节。</li>
+            <li>支持水平旋转，方便让物件融入地形方向。</li>
+            <li>编辑参数会影响视觉尺寸，也会影响角色碰撞判断。</li>
+          </ul>
+        </div>
+
+        <figure class="shot">
+          <img src="feature-doc-assets/04-edit-mode.png" alt="物件编辑模式示意" />
+          <figcaption>物件自由编辑：用于选择、缩放和旋转场景中的物件。</figcaption>
+        </figure>
+      </section>
+
+      <section class="section">
+        <div>
+          <h2>地形雕刻 Brush</h2>
+          <p>
+            Brush 功能允许对可雕刻地形进行抬高或下压。Raise 用于生成坡面、丘陵或平台，Lower 用于挖出坑洞和低洼区域。
+            笔刷是圆形衰减，中间影响最强，边缘形成缓坡，连续点击可以持续累积形变。
+          </p>
+          <ul class="list">
+            <li>支持 Raise / Lower 两种模式。</li>
+            <li>支持调整 Brush Size，控制雕刻范围。</li>
+            <li>雪地、沙地、草地、石地可雕刻；水面和 Backroom 不参与雕刻。</li>
+            <li>角色会根据雕刻后的高度重新计算支撑位置，尝试贴合坡面和凹凸地形。</li>
+          </ul>
+        </div>
+
+        <figure class="shot">
+          <img src="feature-doc-assets/05-brush-panel.png" alt="地形雕刻 Brush 面板" />
+          <figcaption>Brush 面板：Raise / Lower 和笔刷大小控制，用于实时塑造地形。</figcaption>
+        </figure>
+      </section>
+
+    </main>
+  </body>
+</html>
