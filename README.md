@@ -68,6 +68,31 @@ timeline, terrain sculpting, object placement, and a browser-based phone pilot.
   </tr>
 </table>
 
+### 三种导演模式 / Director Modes
+
+<table>
+  <tr>
+    <td width="33%">
+      <strong>游戏模式 / Play Mode</strong><br><br>
+      直接控制场景中的角色进行行走与奔跑，并可在第三人称、第一人称和
+      45° 等距视角之间切换。适合验证角色动作、碰撞、地面接触和场景的实际可玩性，
+      同时支持以 60fps 录制运行画面。
+    </td>
+    <td width="33%">
+      <strong>FPV 飞行运镜 / FPV Camera Pilot</strong><br><br>
+      使用 WASD、Q/E 和鼠标驾驶自由镜头，通过飞行速度、输入缓冲、转向缓动、
+      摆动幅度和焦距等参数塑造稳定器或无人机式运镜。镜头可锁定角色，并可导出
+      视频与 Camera JSON。
+    </td>
+    <td width="33%">
+      <strong>手机虚拟拍摄 / Phone Pilot</strong><br><br>
+      将手机变成与桌面端同步的虚拟取景器。转动手机控制镜头方向，虚拟摇杆控制
+      前后左右位移，并提供暂停、重新校准、位移幅度和远程录制。适合手持式虚拟
+      摄影与多人协作取景。
+    </td>
+  </tr>
+</table>
+
 ![awplanet FPV 飞行运镜](docs/screenshots/fpv-pilot.jpg)
 
 **FPV 飞行运镜 / FPV Camera Pilot**<br>
