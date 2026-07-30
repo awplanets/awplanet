@@ -123,11 +123,6 @@ DynamicWang. See the
 
 ![awplanet FPV 飞行运镜](docs/screenshots/fpv-pilot.jpg)
 
-**FPV 飞行运镜 / FPV Camera Pilot**<br>
-使用 WASD、Q/E、鼠标和可调节的平滑参数进行自由运镜，并可锁定目标及录制镜头。<br>
-Fly the camera with WASD, Q/E, the mouse, and adjustable smoothing controls;
-lock onto a target and record the resulting shot.
-
 ## Highlights
 
 - Visual 3D editor with project, character, object, world, camera, and brush tools.
